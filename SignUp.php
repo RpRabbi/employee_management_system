@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .alert-popup {
@@ -19,11 +19,14 @@
             border-radius: 20px;
             text-align: center;
         }
+        .alert-popup.success {
+            background-color: #4CAF50; /* Green */
+        }
         #orText {
             text-align: center;
             margin: 10px 0;
         }
-        #signUpButton {
+        #signInButton {
             display: block;
             width: 100%;
             text-align: center;
@@ -34,7 +37,7 @@
             text-decoration: none;
             border-radius: 4px;
         }
-        #signUpButton:hover {
+        #signInButton:hover {
             background-color: #3c3c3c;
         }
     </style>
@@ -42,9 +45,9 @@
 <body>
     <div class="container">
         <h1 class="site-title">Employee Management System</h1>
-        <h1 class="title-small">keep it simple & easy.</h1>
+        <h1 class="title-small">Make it easier.</h1>
         <div class="form-container">
-            <form id="signInForm" method="POST" action="">
+            <form id="signUpForm" method="POST" action="">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
@@ -53,9 +56,9 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit">Sign In</button>
+                <button type="submit">Create Account</button>
                 <div id="orText">or</div>
-                <a id="signUpButton" href="SignUp.php">Sign Up</a>
+                <a id="signInButton" href="login.php">Sign In</a>
             </form>
         </div>
     </div>
@@ -63,9 +66,10 @@
     <div id="alertPopup" class="alert-popup"></div>
 
     <script>
-        function showAlert(message) {
+        function showAlert(message, isSuccess) {
             var alertPopup = document.getElementById('alertPopup');
             alertPopup.textContent = message;
+            alertPopup.classList.toggle('success', isSuccess);
             alertPopup.style.display = 'block';
             setTimeout(function() {
                 alertPopup.style.display = 'none';
@@ -86,16 +90,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        header("Location: Dashboard.php");
-        exit();
+    if ($stmt->execute()) {
+        echo "<script>showAlert('Account Created Successfully', true);</script>";
     } else {
-        echo "<script>showAlert('Wrong username or password');</script>";
+        echo "<script>showAlert('Sign up failed. Please try again.', false);</script>";
     }
 
     $stmt->close();

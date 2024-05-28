@@ -36,7 +36,7 @@
                
                 <ul class="main_navbar_ul">
                 
-                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Dashboard</a></li>
+                    <li class="navbar_level_1_li"><a href="http://localhost/web_engeenering_lab_project/Dashboard.php" class="navbar_level_1_link">Dashboard</a></li>
                     <li class="navbar_level_1_li ">
                         <a href="" class="navbar_level_1_link">Manage Employee</a>
                     
@@ -142,7 +142,7 @@ Employees are the pillar of any organization and an ideal employee management to
         <a href="https://x.com/YounusBhuiyan11" target="_blank">
             <img src="images/tweeter-x.png" alt="Twitter">
         </a>
-        <a href="https://github.com/RpRabbi" target="_blank">
+        <a href="https://github.com/Younusabir4038" target="_blank">
             <img src="images/github.jpg" alt="Github">
         </a>
         <a href="https://www.linkedin.com/in/younus-bhuiyan-8189302a9/" target="_blank">
