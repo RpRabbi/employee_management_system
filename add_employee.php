@@ -54,6 +54,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .custom-form-container {
@@ -129,40 +130,51 @@ $conn->close();
         }
     </style>
 </head>
+
 <body>
     <!-- ================================================ navigation bar ================================================ -->
-    <nav class="navbar">
-        <div class="navbar-left">
-            <ul class="navbar-list">
-                <li class="navbar-item"><a href="Dashboard.html">DashBoard</a></li>
-                <li class="navbar-item with-dropdown">
-                    <a href="#">Manage Employee</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="http://localhost/web_engeenering_lab_project/employee_list.php">Employee List</a></li>
-                        <li><a href="http://localhost/web_engeenering_lab_project/add_employee.php">Add Employee</a></li>
-                        <li><a href="http://localhost/web_engeenering_lab_project/remove_employee.php">Remove Employee</a></li>
-                    </ul>
-                </li>
-                <li class="navbar-item with-dropdown">
-                    <a href="#">Salary Info.</a>
-                    <ul class="dropdown-menu">
-                       <li><a href="http://localhost/web_engeenering_lab_project/salary_inc-dec.php" >Salary +/-</a></li>
-                       <li><a href="http://localhost/web_engeenering_lab_project/pay_salary.php" >Pay Salary</a></li>
-                       <li><a href="http://localhost/web_engeenering_lab_project/salary_details.php" >Salary Details</a></li>
-                    </ul>
-                </li>
-                <li class="navbar-item"><a href="about.html">About</a></li>
-            </ul>
-        </div>
-        <div class="navbar-right">
-            <span class="logo">
-                <a class="navbar-item-log-out" href="http://localhost/web_engeenering_lab_project/login.php">Log out</a>
-                <img src="https://p.kindpng.com/picc/s/77-770765_payroll-png-payroll-management-system-icon-transparent-png.png" alt="Logo">
-                <span class="website-name">Employee Management System</span>
-            </span>
-        </div>
-    </nav>
-    <!-- ================================================ navigation bar ================================================ -->
+
+<div class="main_dropdown_container">
+   
+  
+   <div class="dropdown_logo_bar_li" onclick="toggle_bar()" id="toggle_bar" ><i class="fas fa-bars dropdown_logo_bar bar " ></i></div>
+
+   <nav class="navbar_container toggle">
+           <div class="main_navbar">
+              
+               <ul class="main_navbar_ul">
+               
+                   <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Dashboard</a></li>
+                   <li class="navbar_level_1_li ">
+                       <a href="" class="navbar_level_1_link">Manage Employee</a>
+                   
+                           <ul class="dropdown_level_1">
+
+                                   <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/employee_list.php" class="navbar_level_2_link">Employee List</a></li>
+                                   <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/add_employee.php" class="navbar_level_2_link">Add Employee</a></li>
+                                   <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/remove_employee.php" class="navbar_level_2_link">Remove Employee</a></li>
+
+                           </ul>
+                   </li>
+                   <li class="navbar_level_1_li ">
+                       <a href="" class="navbar_level_1_link">Salary Info.</a>
+                   
+                           <ul class="dropdown_level_1">
+
+                                   <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/salary_inc-dec.php" class="navbar_level_2_link">Salary +/-</a></li>
+                                   <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/pay_salary.php" class="navbar_level_2_link">Pay Salary</a></li>
+                                   <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/salary_details.php" class="navbar_level_2_link">Salary Details</a></li>
+
+                           </ul>
+                   </li>
+                   <li class="navbar_level_1_li"><a href="http://localhost/web_engeenering_lab_project/about.html" class="navbar_level_1_link">About</a></li>
+                   <li id="LogoutButton" class="navbar_level_1_li" ><a href="http://localhost/web_engeenering_lab_project/login.php" class="navbar_level_1_link">Log Out</a></li>
+               </ul>
+
+           </div>
+   </nav>
+</div>
+<!-- ================================================ navigation bar ================================================ -->
 
     <!-- ================================================ Middle Part ================================================ -->
     <div class="hero-section">
@@ -176,7 +188,9 @@ $conn->close();
     <div>
          <h1 style="text-align: center; margin: 10px auto; padding : 5px;">Add a new employee to the organization</h1>
     </div>
-
+    <div>
+         <p class="styled-paragraph">Adding new employee information to an organization's database is a critical task for effective human resource management. This process begins with collecting personal details such as the employee's full name, contact information, and emergency contacts. Employment specifics are also recorded, including job title, department, and employment status (e.g., full-time, part-time). Additionally, compensation and benefits data are entered, detailing the salary, bonuses, and benefits like health insurance. Performance metrics, such as past employment history and qualifications, are documented to aid in career development and progression. Attendance and leave information are crucial for tracking work hours and managing time off. Legal compliance requires maintaining accurate records of contracts, agreements, and adherence to labor laws. Ensuring all this information is accurately captured and securely stored in the database supports efficient HR processes, compliance with regulations, informed decision-making, and enhanced employee engagement, ultimately contributing to the organization’s overall productivity and success.</p>
+    </div>
     <!-- ================================================ Add Employee Form ================================================ -->
     <div class="custom-form-container">
         <form class="custom-form" method="POST" action="add_employee.php">
@@ -211,6 +225,9 @@ $conn->close();
     </div>
     <!-- ================================================ Add Employee Form ================================================ -->
     
+    <div>
+        <p class="styled-paragraph_1">Add New employee by providing all the information correctly.</p>
+    </div>
     <br>
     <hr>
     

@@ -2,54 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
 </head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar.css">
 <body>
+    
+<header class="wrapper bimage" id="header">
+
+    <h1 id="logoName" class="logo">Employee Management System</h1>
+    <div class="login_btn" >
+        <a class="cta" href="http://localhost/web_engeenering_lab_project/login.php"><button class="btn_sign btn_2">Log Out</button></a>
+    </div>
+</header>
+
+
+
 
 <!-- ================================================ navigation bar ================================================ -->
-<nav class="navbar">
-    <div class="navbar-left">
-        <ul class="navbar-list">
-            <li class="navbar-item"><a href="Dashboard.html">DashBoard</a></li>
-            <li class="navbar-item with-dropdown">
-                <a href="#">Manage Employee</a>
-                <ul class="dropdown-menu">
-                    <li><a href="http://localhost/web_engeenering_lab_project/employee_list.php" >Employee List</a></li>
-                    <li><a href="http://localhost/web_engeenering_lab_project/add_employee.php" >Add Employee</a></li>
-                    <li><a href="http://localhost/web_engeenering_lab_project/remove_employee.php" >Remove Employee</a></li>
-                </ul>
-            </li>
-            <li class="navbar-item with-dropdown">
-                <a href="#">Salary Info.</a>
-                <ul class="dropdown-menu">
-                    <li><a href="http://localhost/web_engeenering_lab_project/salary_inc-dec.php" >Salary +/-</a></li>
-                    <li><a href="http://localhost/web_engeenering_lab_project/pay_salary.php" >Pay Salary</a></li>
-                    <li><a href="http://localhost/web_engeenering_lab_project/salary_details.php" >Salary Details</a></li>
-                </ul>
-            </li>
-            <li class="navbar-item"><a href="about.html">About</a></li>
-        </ul>
-    </div>
-    <div class="navbar-right">
-        <span class="logo">
-            <a class="navbar-item-log-out" href="http://localhost/web_engeenering_lab_project/login.php">Log out</a>
-            <img src="https://p.kindpng.com/picc/s/77-770765_payroll-png-payroll-management-system-icon-transparent-png.png" alt="Logo">
-            <span class="website-name">Employee Management System</span>
-        </span>
-    </div>
-</nav>
-<!-- ================================================ navigation bar ================================================ -->
 
+<div class="main_dropdown_container">
+   
+  
+    <div class="dropdown_logo_bar_li" onclick="toggle_bar()" id="toggle_bar" ><i class="fas fa-bars dropdown_logo_bar bar " ></i></div>
+
+    <nav class="navbar_container toggle">
+            <div class="main_navbar">
+               
+                <ul class="main_navbar_ul">
+                
+                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Dashboard</a></li>
+                    <li class="navbar_level_1_li ">
+                        <a href="" class="navbar_level_1_link">Manage Employee</a>
+                    
+                            <ul class="dropdown_level_1">
+
+                                    <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/employee_list.php" class="navbar_level_2_link">Employee List</a></li>
+                                    <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/add_employee.php" class="navbar_level_2_link">Add Employee</a></li>
+                                    <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/remove_employee.php" class="navbar_level_2_link">Remove Employee</a></li>
+
+                            </ul>
+                    </li>
+                    <li class="navbar_level_1_li ">
+                        <a href="" class="navbar_level_1_link">Salary Info.</a>
+                    
+                            <ul class="dropdown_level_1">
+
+                                    <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/salary_inc-dec.php" class="navbar_level_2_link">Salary +/-</a></li>
+                                    <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/pay_salary.php" class="navbar_level_2_link">Pay Salary</a></li>
+                                    <li class="navbar_level_2_li"><a href="http://localhost/web_engeenering_lab_project/salary_details.php" class="navbar_level_2_link">Salary Details</a></li>
+
+                            </ul>
+                    </li>
+                    <li class="navbar_level_1_li"><a href="http://localhost/web_engeenering_lab_project/about.html" class="navbar_level_1_link">About</a></li>
+                    <li id="LogoutButton" class="navbar_level_1_li" ><a href="http://localhost/web_engeenering_lab_project/login.php" class="navbar_level_1_link">Log Out</a></li>
+                </ul>
+
+            </div>
+    </nav>
+</div>
+<!-- ================================================ navigation bar ================================================ -->
 
 <! ========================================== banner and slide show ========================================= -->
 <div class="slider-container">
     <div class="text-block">
-        <p font-size="20px">Employee</p>
-        <p font-size="20px">Management</p>
-        <p font-size="20px">System</p>
+        <p >Employee</p>
+        <p >Management</p>
+        <p >System</p>
     </div>
     <div class="gap"></div>
     <div class="slider-frame">
@@ -130,5 +154,27 @@ Employees are the pillar of any organization and an ideal employee management to
     </div>
 </footer>
 <! ========================================== Home page footer ========================================= -->
+
+<! ========================================== JavaScript ========================================= -->
+
+<script>
+
+        let toggle = document.getElementsByClassName('toggle_bar');
+
+        function toggle_bar() {
+
+         let element = document.querySelector(".toggle");
+         element.classList.toggle("show")
+         
+         let element2 = document.querySelector(".bar")
+         element2.classList.toggle("bar2")
+ 
+        }
+
+</script>
+
+
+<!-- ============================================================================================= -->
+
 </body>
 </html>

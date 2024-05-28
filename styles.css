@@ -5,8 +5,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-
+@media screen and (max-width: 991px) {
+    #header {
+        display: none;
+    }
+}
 /* Body styles */
 body {
     font-family: 'Poppins', sans-serif;
@@ -100,6 +105,7 @@ button:hover {
 
 /* =============================================== Log in =============================================== */
 /* =============================================== nav bar =============================================== */
+/* =============================================== nav bar =============================================== */
 .navbar {
     background-color: #000000; /* Navbar background color */
     color: #fff; /* Text color */
@@ -107,6 +113,7 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    flex-wrap: nowrap;
 }
 
 .navbar-left, .navbar-right {
@@ -114,11 +121,21 @@ button:hover {
     align-items: center;
 }
 
+.menu-toggle {
+    display: none; /* Hide the menu toggle button by default */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .navbar-list {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
+    flex-wrap: nowrap;
 }
 
 .navbar-item {
@@ -126,7 +143,7 @@ button:hover {
     position: relative; /* Required for absolute positioning of dropdown */
 }
 
-.navbar-item a, .navbar-item-log-out {
+.navbar-item a {
     text-decoration: none;
     color: #fff;
     padding: 8px 12px;
@@ -134,8 +151,15 @@ button:hover {
     border-radius: 20px; /* Round-shaped box */
     transition: background-color 0.3s, color 0.3s; /* Transition effect */
 }
+.navbar-item-log-out a {
+    color: #fff;
+    padding: 8px 12px;
+    margin: auto;
+    border-radius: 20px; /* Round-shaped box */
+    transition: background-color 0.3s, color 0.3s; /* Transition effect */
+}
 
-.navbar-item:hover a, .navbar-item-log-out:hover {
+.navbar-item:hover a, .navbar-item-log-out a:hover {
     background-color: #fff; /* Change background color on hover */
     color: #000; /* Change text color on hover */
 }
@@ -150,7 +174,7 @@ button:hover {
     padding: 5px;
     border-radius: 0; /* No rounded corners */
     z-index: 1;
-    
+
     /* Remove default list style */
     list-style: none;
     padding: 0; /* Remove default padding */
@@ -203,10 +227,51 @@ button:hover {
     align-items: center;
 }
 
-.navbar-item-log-out {
-    margin-right: 20px; /* Space between log out link and logo */
-}
+/* Media query for responsive design */
+@media screen and (max-width: 1200px) {
+    .navbar {
+        flex-direction:row;
+        align-items: flex-start;
+    }
 
+    .navbar-right {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block; /* Show the menu toggle button */
+        font-size: 32px; /* Increase the size of the menu toggle button */
+        margin-left: auto; /* Align it to the right */
+    }
+
+    .navbar-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        align-items: right; /* Align dropdown items to the right */
+    }
+
+    .navbar-list.show {
+        display: flex;
+    }
+
+    .navbar-item {
+        margin-right: 0;
+        width: 100%;
+        text-align: right; /* Align text to the right */
+        margin-bottom: 10px; /* Add margin between items */
+    }
+
+    .dropdown-menu {
+        position: static;
+        padding-left: 20px; /* Indent dropdown items */
+        text-align: right; /* Align text inside dropdown to the right */
+    }
+
+    .dropdown-menu li {
+        padding: 8px 12px; /* Add padding to dropdown items */
+    }
+}
 /* ===================================== navigation bar ===================================== */
 
 
@@ -225,11 +290,28 @@ button:hover {
     width: 30%;
     padding: 20px 40px;
     text-align: left;
-    font-size: 60px; /* Increase text size */
+    font-size: 300%; /* Increase text size */
     font-weight: bold;
     color: yellow;
     font-family: Arial, sans-serif; /* Change font family */
 }
+
+@media screen and (max-width: 992px) {
+    .text-block {
+        width: 40%; /* Adjust width for 992px */
+        padding: 15px 30px; /* Adjust padding for 992px */
+        font-size: 250%; /* Decrease text size for 992px */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .text-block {
+        width: 60%; /* Adjust width for 768px */
+        padding: 10px 20px; /* Adjust padding for 768px */
+        font-size: 200%; /* Decrease text size for 768px */
+    }
+}
+
 
 .gap {
     width: 40%;
@@ -263,6 +345,28 @@ button:hover {
     height: 100%;
     object-fit: contain;
 }
+
+@media screen and (max-width: 992px) {
+    .slider-frame {
+        width: 40%; /* Adjust width for 992px */
+    }
+    
+    .img-container {
+        width: 600px; /* Adjust width for 992px */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider-frame {
+        width: 60%; /* Adjust width for 768px */
+        height: 200px; /* Adjust height for 768px */
+    }
+    
+    .img-container {
+        width: 400px; /* Adjust width for 768px */
+    }
+}
+
 
 /* SLIDE ANIMATION */
 @keyframes slide_animation {
@@ -307,61 +411,35 @@ button:hover {
     display: flex;
     justify-content: space-around;
     padding: 5%;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow items to wrap */
 }
 
-.image-container1 {
+.image-container1, .image-container2 {
     text-align: center;
     margin-bottom: 20px;
     text-align: justify;
-    width: 40%;
+    width: 48%;
     padding: 5%;
 }
 
-.image-container1 img {
-    width: 400px; /* Adjust image width as needed */
-    height: 400px; /* Adjust image height as needed */
-    border-radius: 0%; /* Make the image circular */
-}
-
-.image-container1 p {
-    padding: 1.5%;
-    padding-bottom: 5% ;
-}
-
-.image-container1 a {
+.image-container1 img, .image-container2 img {
+    width: 100%;
+    max-width: 500px; /* Keep the aspect ratio */
+    height: 400px; /* Fixed height for images */
+    border-radius: 0%; /* Change this if you want circular images */
     display: block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: blue;
-    text-align: center;
-}
-
-.image-container1 a:hover {
-    text-decoration: underline;
-}
-
-
-.image-container2 {
-    text-align: center;
-    margin-bottom: 20px;
-    text-align: justify;
-    width: 40%;
-    padding: 5%;
-}
-
-.image-container2 img {
-    width: 400px; /* Adjust image width as needed */
-    height: 400px; /* Adjust image height as needed */
-    border-radius: 0%; /* Make the image circular */
-}
-
-.image-container2 p {
-    padding: 1.5%;
+    margin: 0 auto; /* Center the image horizontally */
     padding-bottom: 5%;
 }
 
-.image-container2 a {
+.image-container1 p, .image-container2 p {
+    padding: 1.5%;
+    padding-bottom: 5%;
+    width: 100%; /* Ensure the texts have the same width */
+}
+
+.image-container1 a, .image-container2 a {
     display: block;
     margin-top: 10px;
     text-decoration: none;
@@ -369,11 +447,48 @@ button:hover {
     text-align: center;
 }
 
-.image-container2 a:hover {
+.image-container1 a:hover, .image-container2 a:hover {
     text-decoration: underline;
 }
 
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    .image-container1, .image-container2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-container1, .image-container2 {
+        width: 100%;
+    }
+}
 /* ===================================== inline image and text ===================================== */
+
+
+.styled-paragraph {
+    font-family: Arial, sans-serif;  /* Sets a clean, readable font */
+    font-size: 16px;                /* Sets the font size */
+    line-height: 1.6;               /* Increases line height for readability */
+    text-align: justify;            /* Justifies the text */
+    color: #333;                    /* Sets a dark gray text color */
+    padding-left: 5%;                  /* Adds padding around the text */
+    padding-right: 5%;                  /* Adds padding around the text */
+    border-radius: 5px;             /* Rounds the corners */
+}
+
+.styled-paragraph_1 {
+    font-family: Arial, sans-serif;  /* Sets a clean, readable font */
+    font-size: 25px;                /* Sets the font size */
+    font-weight: bold;
+    line-height: 1.6;               /* Increases line height for readability */
+    text-align: center;            /* Justifies the text */
+    color: #333;                    /* Sets a dark gray text color */
+    padding-bottom: 5%;                  /* Adds padding around the text */
+    border-radius: 5px;             /* Rounds the corners */
+}
+
+
 /* ===================================== Home page footer ===================================== */
 .footer {
     background-color: #fff; /* Changed background color to white */
